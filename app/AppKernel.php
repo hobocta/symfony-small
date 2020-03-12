@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 use FOS\RestBundle\FOSRestBundle;
 use JMS\SerializerBundle\JMSSerializerBundle;
 use Symfony\Bundle\FrameworkBundle\FrameworkBundle;
