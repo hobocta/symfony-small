@@ -1,0 +1,4 @@
+framework:
+    router:
+        resource: '%kernel.root_dir%/config/routes.yml'
+        strict_requirements: ~

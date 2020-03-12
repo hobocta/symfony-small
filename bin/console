@@ -1,0 +1,27 @@
+#!/usr/bin/env php
+<?php
+
+use App\Env;
+use Symfony\Bundle\FrameworkBundle\Console\Application as BundleConsoleApplication;
+use Symfony\Component\Console\Input\ArgvInput;
+
+$root = dirname(__DIR__);
+
+require_once $root . '/vendor/autoload.php';
+
+try {
+    $env = new Env($root);
+
+    $app = new AppKernel($env->getEnvironment(), $env->isDebug());
+
+    $application = new BundleConsoleApplication($app);
+
+    $input = new ArgvInput();
+
+    $application->run($input);
+} catch (Exception $e) {
+    fwrite(
+        STDERR,
+        sprintf('Exception message: %s (%s:%s)', $e->getMessage(), $e->getFile(), $e->getLine()) . PHP_EOL
+    );
+}
